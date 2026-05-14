@@ -66,8 +66,28 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               custom={0}
+              className="flex flex-col gap-3"
             >
               <Eyebrow className="justify-start">AI Concierge for Hospitality</Eyebrow>
+
+              {/* Social proof trust badge */}
+              <div className="flex items-center gap-3">
+                <div className="flex -space-x-2" aria-hidden="true">
+                  {["A", "B", "C", "D"].map((l) => (
+                    <div
+                      key={l}
+                      className="w-7 h-7 rounded-full bg-bg-elevated border-2 border-bg-primary flex items-center justify-center text-[10px] text-gold-primary font-semibold"
+                    >
+                      {l}
+                    </div>
+                  ))}
+                </div>
+                <p className="text-xs text-gray-muted">
+                  Trusted by{" "}
+                  <span className="text-gold-primary font-semibold">50+</span>{" "}
+                  hospitality establishments
+                </p>
+              </div>
             </motion.div>
 
             <motion.h1
