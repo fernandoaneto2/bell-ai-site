@@ -4,12 +4,15 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
-import { navLinks } from "@content/nav";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
+import { navLinks, navCta } from "@content/nav";
+import { useLang } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { lang } = useLang();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -22,6 +25,9 @@ export default function Navbar() {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
+
+  const links = navLinks[lang];
+  const ctaLabel = navCta[lang];
 
   return (
     <>
@@ -45,7 +51,6 @@ export default function Navbar() {
               className="flex items-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold-primary focus-visible:outline-offset-2 rounded-sm"
               aria-label="bell.ai — home"
             >
-              {/* TODO: replace with optimized SVG logo */}
               <span className="text-xl font-light tracking-tight text-white-pure">
                 bell<span className="text-gold-primary">.</span>ai
               </span>
@@ -53,7 +58,7 @@ export default function Navbar() {
 
             {/* Desktop links */}
             <ul className="hidden md:flex items-center gap-8" role="list">
-              {navLinks.map((link) => (
+              {links.map((link) => (
                 <li key={link.href}>
                   <button
                     onClick={() => handleNavClick(link.href)}
@@ -65,8 +70,9 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* CTA */}
-            <div className="hidden md:flex items-center gap-4">
+            {/* Desktop: switcher + CTA */}
+            <div className="hidden md:flex items-center gap-3">
+              <LanguageSwitcher />
               <Button
                 variant="gold-outline"
                 size="sm"
@@ -76,7 +82,7 @@ export default function Navbar() {
                   handleNavClick("#book-demo");
                 }}
               >
-                Book a Demo
+                {ctaLabel}
               </Button>
             </div>
 
@@ -104,7 +110,7 @@ export default function Navbar() {
           aria-label="Mobile navigation"
         >
           <Container className="flex flex-col gap-2 py-8">
-            {navLinks.map((link) => (
+            {links.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
@@ -113,7 +119,12 @@ export default function Navbar() {
                 {link.label}
               </button>
             ))}
-            <div className="mt-6">
+
+            <div className="mt-4">
+              <LanguageSwitcher />
+            </div>
+
+            <div className="mt-4">
               <Button
                 variant="gold-solid"
                 size="lg"
@@ -126,7 +137,7 @@ export default function Navbar() {
                   }, 150);
                 }}
               >
-                Book a Demo
+                {ctaLabel}
               </Button>
             </div>
           </Container>
