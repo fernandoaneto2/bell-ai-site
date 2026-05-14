@@ -87,6 +87,41 @@
   }
 }
 
+/* ── BackgroundFX animations ── */
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0px,  0px) scale(1); }
+  33%       { transform: translate(50px, 60px) scale(1.08); }
+  66%       { transform: translate(-30px, 35px) scale(0.94); }
+}
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0px,   0px) scale(1); }
+  40%       { transform: translate(-60px, -50px) scale(1.06); }
+  75%       { transform: translate(40px, -70px) scale(0.91); }
+}
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50%       { transform: translate(-50%, -50%) scale(1.20); }
+}
+@keyframes scanLine {
+  0%   { top: -1px;   opacity: 0; }
+  3%   { opacity: 1; }
+  94%  { opacity: 0.7; }
+  100% { top: 100vh;  opacity: 0; }
+}
+
+.fx-orb-1 { animation: orbFloat1 24s ease-in-out infinite; }
+.fx-orb-2 { animation: orbFloat2 30s ease-in-out infinite; }
+.fx-orb-3 { animation: orbFloat3 20s ease-in-out infinite; }
+.fx-scan  { animation: scanLine  14s linear    infinite; }
+
+/* Semi-transparent section backgrounds — reveals the FX layer */
+.bg-bg-primary   { background-color: rgba(0,   0,  0, 0.87); }
+.bg-bg-secondary { background-color: rgba(10, 10, 10, 0.92); }
+.bg-bg-elevated  { background-color: rgba(20, 20, 20, 0.95); }
+
+/* Body stays solid black (higher specificity wins over the above) */
+body.bg-bg-primary { background-color: #000000; }
+
 /* ── n8n chat widget — bell.ai brand override ── */
 :root {
   --chat--color--primary: #c9a24c;
