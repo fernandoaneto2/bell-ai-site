@@ -26,6 +26,11 @@ export const metadata: Metadata = {
     "bell.ai",
   ],
   authors: [{ name: "bell.ai" }],
+  icons: {
+    icon: [{ url: "/Emoji-bell-sem-fundo.png", type: "image/png" }],
+    shortcut: "/Emoji-bell-sem-fundo.png",
+    apple: "/Emoji-bell-sem-fundo.png",
+  },
   openGraph: {
     title: "bell.ai — AI Concierge for Hospitality",
     description:

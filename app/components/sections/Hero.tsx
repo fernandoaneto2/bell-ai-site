@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Eyebrow from "@/components/ui/Eyebrow";
@@ -50,45 +49,12 @@ export default function Hero() {
           {/* Left: copy */}
           <div className="flex flex-col items-start gap-6">
             <motion.div
-              initial={{ opacity: 0, scale: 0.7 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <Image
-                src="/Emoji-bell-sem-fundo.png"
-                alt="bell.ai mascot"
-                width={96}
-                height={96}
-                className="h-24 w-24 object-contain drop-shadow-[0_0_24px_rgba(201,162,76,0.45)]"
-                priority
-              />
-            </motion.div>
-
-            <motion.div
               variants={fadeUp}
               initial="hidden"
               animate="visible"
               custom={0}
-              className="flex flex-col gap-3"
             >
               <Eyebrow className="justify-start">{t.hero.eyebrow}</Eyebrow>
-
-              {/* Social proof trust badge */}
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-2" aria-hidden="true">
-                  {["A", "B", "C", "D"].map((l) => (
-                    <div
-                      key={l}
-                      className="w-7 h-7 rounded-full bg-bg-elevated border-2 border-bg-primary flex items-center justify-center text-[10px] text-gold-primary font-semibold"
-                    >
-                      {l}
-                    </div>
-                  ))}
-                </div>
-                <p className="text-xs text-gray-muted">
-                  {t.hero.trust}
-                </p>
-              </div>
             </motion.div>
 
             <motion.h1
