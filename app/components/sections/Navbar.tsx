@@ -53,11 +53,11 @@ export default function Navbar() {
               aria-label="bell.ai — home"
             >
               <Image
-                src="/Emoji-bell.jpeg"
+                src="/Emoji-bell-sem-fundo.png"
                 alt=""
                 width={32}
                 height={32}
-                className="h-8 w-8 object-contain mix-blend-screen"
+                className="h-8 w-8 object-contain"
                 priority
                 aria-hidden="true"
               />

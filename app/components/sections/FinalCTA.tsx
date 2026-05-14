@@ -31,11 +31,11 @@ export default function FinalCTA() {
       <Container className="relative z-10">
         <div className="max-w-2xl mx-auto text-center flex flex-col gap-6 items-center">
           <Image
-            src="/Logo BELL AI.jpeg"
+            src="/Logo_BELL_sem_fundo.png"
             alt="bell.ai"
-            width={96}
-            height={96}
-            className="h-24 w-24 object-contain mix-blend-screen drop-shadow-[0_0_24px_rgba(201,162,76,0.35)]"
+            width={120}
+            height={120}
+            className="h-28 w-28 object-contain drop-shadow-[0_0_28px_rgba(201,162,76,0.4)]"
           />
           <h2
             className="font-sans font-light text-white-pure text-balance leading-tight"

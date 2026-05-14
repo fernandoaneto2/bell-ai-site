@@ -52,11 +52,11 @@ export default function Hero() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
               <Image
-                src="/Emoji-bell.jpeg"
+                src="/Emoji-bell-sem-fundo.png"
                 alt="bell.ai mascot"
-                width={80}
-                height={80}
-                className="h-20 w-20 object-contain mix-blend-screen drop-shadow-[0_0_18px_rgba(201,162,76,0.4)]"
+                width={96}
+                height={96}
+                className="h-24 w-24 object-contain drop-shadow-[0_0_24px_rgba(201,162,76,0.45)]"
                 priority
               />
             </motion.div>

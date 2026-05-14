@@ -31,11 +31,11 @@ export default function Footer() {
               aria-label="bell.ai — home"
             >
               <Image
-                src="/Logo BELL AI.jpeg"
+                src="/Logo_BELL_sem_fundo.png"
                 alt="bell.ai"
-                width={80}
-                height={80}
-                className="h-20 w-20 object-contain mix-blend-screen"
+                width={96}
+                height={96}
+                className="h-24 w-24 object-contain"
               />
             </a>
             <p className="text-gray-muted text-xs uppercase tracking-widest font-semibold" style={{ letterSpacing: "0.2em" }}>

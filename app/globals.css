@@ -86,3 +86,34 @@
     -webkit-backdrop-filter: blur(12px);
   }
 }
+
+/* ── n8n chat widget — bell.ai brand override ── */
+:root {
+  --chat--color--primary: #c9a24c;
+  --chat--color--primary-shade-50: #8b6f2e;
+  --chat--color--primary-shade-100: #6b5220;
+  --chat--color--secondary: #e5c580;
+  --chat--color--white: #ffffff;
+  --chat--color--black: #000000;
+  --chat--color--light-gray: #141414;
+  --chat--color--medium-gray: #1e1e1e;
+  --chat--color--dark-gray: #8a8a8a;
+  --chat--font-family: var(--font-manrope), system-ui, sans-serif;
+  --chat--font-size: 14px;
+  --chat--border-radius: 16px;
+  --chat--header--background: #0a0a0a;
+  --chat--header--color: #ffffff;
+  --chat--body--background: #000000;
+  --chat--message--bot--background: #141414;
+  --chat--message--bot--color: #e8e8e8;
+  --chat--message--user--background: #c9a24c;
+  --chat--message--user--color: #000000;
+  --chat--input--background: #0a0a0a;
+  --chat--input--border-color: rgba(201, 162, 76, 0.25);
+  --chat--input--border-color-active: #c9a24c;
+  --chat--toggle--background: #c9a24c;
+  --chat--toggle--hover--background: #8b6f2e;
+  --chat--toggle--active--background: #8b6f2e;
+  --chat--toggle--color: #000000;
+  --chat--toggle--size: 56px;
+}
