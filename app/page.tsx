@@ -5,12 +5,11 @@ import TheProblem from "@/components/sections/TheProblem";
 import MeetBellAi from "@/components/sections/MeetBellAi";
 import HowItWorks from "@/components/sections/HowItWorks";
 import LiveDemo from "@/components/sections/LiveDemo";
+import DemoGallery from "@/components/sections/DemoGallery";
 import FeaturesGrid from "@/components/sections/FeaturesGrid";
 import UseCases from "@/components/sections/UseCases";
-import Integrations from "@/components/sections/Integrations";
 import Results from "@/components/sections/Results";
 import Testimonials from "@/components/sections/Testimonials";
-import PricingTeaser from "@/components/sections/PricingTeaser";
 import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
 import Footer from "@/components/sections/Footer";
@@ -26,12 +25,11 @@ export default function Home() {
         <MeetBellAi />
         <HowItWorks />
         <LiveDemo />
+        <DemoGallery />
         <FeaturesGrid />
         <UseCases />
-        <Integrations />
         <Results />
         <Testimonials />
-        <PricingTeaser />
         <FAQ />
         <FinalCTA />
       </main>

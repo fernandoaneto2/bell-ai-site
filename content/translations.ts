@@ -87,6 +87,12 @@ export interface Translations {
     title: string;
     items: { question: string; answer: string }[];
   };
+  demoGallery: {
+    eyebrow: string;
+    title: string;
+    sub: string;
+    cta: string;
+  };
 }
 
 export const translations: Record<Lang, Translations> = {
@@ -422,6 +428,12 @@ export const translations: Record<Lang, Translations> = {
         },
       ],
     },
+    demoGallery: {
+      eyebrow: "Live in Action",
+      title: "See Bell respond in real time.",
+      sub: "From restaurant reservations to hotel check-ins — every conversation automated, every guest impressed.",
+      cta: "Book a Free Demo",
+    },
   },
 
   pt: {
@@ -755,6 +767,12 @@ export const translations: Record<Lang, Translations> = {
             "Sim. Seu painel mostra volumes de mensagens, taxas de resolução, perguntas mais frequentes e pontos de conversão — atualizado em tempo real.",
         },
       ],
+    },
+    demoGallery: {
+      eyebrow: "Ao Vivo em Ação",
+      title: "Veja o Bell respondendo em tempo real.",
+      sub: "De reservas em restaurantes ao check-in em hotéis — cada conversa automatizada, cada hóspede impressionado.",
+      cta: "Agendar Demo Gratuita",
     },
   },
 
@@ -1090,6 +1108,12 @@ export const translations: Record<Lang, Translations> = {
         },
       ],
     },
+    demoGallery: {
+      eyebrow: "En Acción",
+      title: "Mira a Bell responder en tiempo real.",
+      sub: "Desde reservas en restaurantes hasta check-ins en hoteles — cada conversación automatizada, cada huésped impresionado.",
+      cta: "Reservar Demo Gratuita",
+    },
   },
 
   fr: {
@@ -1423,6 +1447,12 @@ export const translations: Record<Lang, Translations> = {
             "Oui. Votre tableau de bord affiche les volumes de messages, les taux de résolution, les questions les plus fréquentes et les points de conversion — mis à jour en temps réel.",
         },
       ],
+    },
+    demoGallery: {
+      eyebrow: "En Direct",
+      title: "Regardez Bell répondre en temps réel.",
+      sub: "Des réservations au restaurant aux check-ins d'hôtel — chaque conversation automatisée, chaque client impressionné.",
+      cta: "Réserver une Démo Gratuite",
     },
   },
 
@@ -1758,6 +1788,12 @@ export const translations: Record<Lang, Translations> = {
         },
       ],
     },
+    demoGallery: {
+      eyebrow: "Live in Aktion",
+      title: "Sehen Sie Bell in Echtzeit antworten.",
+      sub: "Von Restaurantreservierungen bis zum Hotel-Check-in — jedes Gespräch automatisiert, jeder Gast begeistert.",
+      cta: "Kostenlose Demo buchen",
+    },
   },
 
   it: {
@@ -2091,6 +2127,12 @@ export const translations: Record<Lang, Translations> = {
             "Sì. La tua dashboard mostra volumi di messaggi, tassi di risoluzione, domande più frequenti e punti di conversione — aggiornati in tempo reale.",
         },
       ],
+    },
+    demoGallery: {
+      eyebrow: "Dal Vivo",
+      title: "Guarda Bell rispondere in tempo reale.",
+      sub: "Dalle prenotazioni nei ristoranti al check-in negli hotel — ogni conversazione automatizzata, ogni ospite impressionato.",
+      cta: "Prenota una Demo Gratuita",
     },
   },
 };
