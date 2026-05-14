@@ -1,8 +1,11 @@
+"use client";
+
 import { Star } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Eyebrow from "@/components/ui/Eyebrow";
+import { useTranslation } from "@/hooks/useTranslation";
 
 // TODO: collect real testimonials from pilot clients
 const testimonials = [
@@ -36,12 +39,14 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const t = useTranslation();
+
   return (
     <SectionWrapper id="testimonials" bg="secondary">
       <Container>
         <div className="text-center mb-14">
-          <Eyebrow className="mb-4">What They Say</Eyebrow>
-          <SectionTitle>Establishments that trust bell.ai.</SectionTitle>
+          <Eyebrow className="mb-4">{t.testimonials.eyebrow}</Eyebrow>
+          <SectionTitle>{t.testimonials.title}</SectionTitle>
         </div>
 
         <div

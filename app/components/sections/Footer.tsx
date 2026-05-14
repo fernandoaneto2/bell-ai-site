@@ -1,24 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Hairline from "@/components/ui/Hairline";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const currentYear = new Date().getFullYear();
 
-const productLinks = [
-  { label: "How it Works", href: "#how-it-works" },
-  { label: "Features", href: "#features" },
-  { label: "Use Cases", href: "#use-cases" },
-  { label: "Pricing", href: "#pricing" },
-];
-
-const companyLinks = [
-  { label: "About", href: "#" }, // TODO: create /about page
-  { label: "Contact", href: "mailto:hello@bell.ai" }, // TODO: replace with real email
-  { label: "Privacy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
-];
-
 export default function Footer() {
+  const t = useTranslation();
+
   return (
     <footer className="bg-bg-secondary border-t border-[rgba(201,162,76,0.1)]" role="contentinfo">
       <Container className="py-14">
@@ -42,19 +33,18 @@ export default function Footer() {
               AI Concierge for Hospitality
             </p>
             <p className="text-gray-muted text-sm leading-relaxed max-w-xs">
-              Automating guest conversations across WhatsApp, Instagram, and your website — 24/7,
-              in any language.
+              {t.footer.description}
             </p>
           </div>
 
           {/* Col 2: Product */}
           <nav aria-label="Product links">
             <p className="text-white-soft text-xs uppercase tracking-widest font-semibold mb-4" style={{ letterSpacing: "0.15em" }}>
-              Product
+              {t.footer.product}
             </p>
             <ul className="flex flex-col gap-2.5">
-              {productLinks.map(({ label, href }) => (
-                <li key={label}>
+              {t.footer.productLinks.map(({ label, href }) => (
+                <li key={href}>
                   <a
                     href={href}
                     className="text-gray-muted text-sm hover:text-gold-primary transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold-primary rounded-sm"
@@ -69,11 +59,11 @@ export default function Footer() {
           {/* Col 3: Company */}
           <nav aria-label="Company links">
             <p className="text-white-soft text-xs uppercase tracking-widest font-semibold mb-4" style={{ letterSpacing: "0.15em" }}>
-              Company
+              {t.footer.company}
             </p>
             <ul className="flex flex-col gap-2.5">
-              {companyLinks.map(({ label, href }) => (
-                <li key={label}>
+              {t.footer.companyLinks.map(({ label, href }) => (
+                <li key={href}>
                   <a
                     href={href}
                     className="text-gray-muted text-sm hover:text-gold-primary transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold-primary rounded-sm"
@@ -91,7 +81,7 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-muted text-xs">
-            &copy; {currentYear} bell.ai &middot; Built for hospitality
+            &copy; {currentYear} bell.ai &middot; {t.footer.copyright}
           </p>
 
           {/* Social icons */}

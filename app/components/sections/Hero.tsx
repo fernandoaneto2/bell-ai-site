@@ -8,6 +8,7 @@ import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Eyebrow from "@/components/ui/Eyebrow";
 import PhoneMockup from "@/components/ui/PhoneMockup";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -21,6 +22,8 @@ const fadeUp = {
 };
 
 export default function Hero() {
+  const t = useTranslation();
+
   const handleSeeDemo = (e: React.MouseEvent) => {
     e.preventDefault();
     document.querySelector("#live-demo")?.scrollIntoView({ behavior: "smooth" });
@@ -68,7 +71,7 @@ export default function Hero() {
               custom={0}
               className="flex flex-col gap-3"
             >
-              <Eyebrow className="justify-start">AI Concierge for Hospitality</Eyebrow>
+              <Eyebrow className="justify-start">{t.hero.eyebrow}</Eyebrow>
 
               {/* Social proof trust badge */}
               <div className="flex items-center gap-3">
@@ -83,9 +86,7 @@ export default function Hero() {
                   ))}
                 </div>
                 <p className="text-xs text-gray-muted">
-                  Trusted by{" "}
-                  <span className="text-gold-primary font-semibold">50+</span>{" "}
-                  hospitality establishments
+                  {t.hero.trust}
                 </p>
               </div>
             </motion.div>
@@ -98,13 +99,13 @@ export default function Hero() {
               className="font-sans font-light text-white-pure leading-[1.1] text-balance"
               style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.25rem)" }}
             >
-              Your guests deserve
+              {t.hero.h1Line1}
               <br />
-              <span className="font-semibold">instant answers.</span>
+              <span className="font-semibold">{t.hero.h1Line2}</span>
               <br />
-              Your staff deserves
+              {t.hero.h1Line3}
               <br />
-              <span className="font-semibold">their time back.</span>
+              <span className="font-semibold">{t.hero.h1Line4}</span>
             </motion.h1>
 
             <motion.p
@@ -114,8 +115,7 @@ export default function Hero() {
               custom={0.24}
               className="text-gray-muted text-lg leading-relaxed max-w-[520px]"
             >
-              bell.ai is an AI concierge that handles reservations, requests, and questions across
-              WhatsApp, Instagram, and your website — 24/7, in any language, in your brand voice.
+              {t.hero.sub}
             </motion.p>
 
             <motion.div
@@ -134,7 +134,7 @@ export default function Hero() {
                   document.querySelector("#book-demo")?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                Book a Demo
+                {t.hero.cta1}
               </Button>
               <Button
                 variant="ghost"
@@ -142,7 +142,7 @@ export default function Hero() {
                 href="#live-demo"
                 onClick={handleSeeDemo}
               >
-                See It in Action <ArrowDown size={16} />
+                {t.hero.cta2} <ArrowDown size={16} />
               </Button>
             </motion.div>
           </div>

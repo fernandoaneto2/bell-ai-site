@@ -6,14 +6,13 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
-import { navLinks, navCta } from "@content/nav";
-import { useLang } from "@/context/LanguageContext";
+import { useTranslation } from "@/hooks/useTranslation";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { lang } = useLang();
+  const t = useTranslation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -27,8 +26,8 @@ export default function Navbar() {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  const links = navLinks[lang];
-  const ctaLabel = navCta[lang];
+  const links = t.nav.links;
+  const ctaLabel = t.nav.cta;
 
   return (
     <>

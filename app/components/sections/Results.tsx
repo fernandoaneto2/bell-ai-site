@@ -6,41 +6,10 @@ import Container from "@/components/ui/Container";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Eyebrow from "@/components/ui/Eyebrow";
 import SectionTitle from "@/components/ui/SectionTitle";
-
-const metrics = [
-  {
-    value: "+40%",
-    label: "Increase in online bookings",
-    sublabel: "Average across pilot clients",
-  },
-  {
-    value: "<2s",
-    label: "Average response time",
-    sublabel: "Any hour, any channel",
-  },
-  {
-    value: "8h",
-    label: "Staff hours freed per day",
-    sublabel: "Per property, on average",
-  },
-  {
-    value: "70%",
-    label: "Inquiries resolved by AI",
-    sublabel: "Without human intervention",
-  },
-  {
-    value: "24/7",
-    label: "Always available",
-    sublabel: "No sick days, no holidays",
-  },
-  {
-    value: "50+",
-    label: "Languages supported",
-    sublabel: "Automatic detection",
-  },
-];
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function Results() {
+  const t = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-15% 0px" });
   const [revealed, setRevealed] = useState(false);
@@ -53,11 +22,11 @@ export default function Results() {
     <SectionWrapper id="results" bg="primary">
       <Container>
         <div className="text-center mb-14">
-          <Eyebrow className="mb-4">Results</Eyebrow>
-          <SectionTitle>Numbers that change the conversation.</SectionTitle>
+          <Eyebrow className="mb-4">{t.results.eyebrow}</Eyebrow>
+          <SectionTitle>{t.results.title}</SectionTitle>
           <p className="text-gray-muted text-sm mt-4 flex items-center justify-center gap-2">
             <span className="text-gold-primary opacity-60">✦</span>
-            Based on aggregated data from pilot clients — updated quarterly
+            {t.results.sub}
           </p>
         </div>
 
@@ -67,7 +36,7 @@ export default function Results() {
           role="list"
           aria-label="Key performance metrics"
         >
-          {metrics.map(({ value, label, sublabel }, i) => (
+          {t.results.metrics.map(({ value, label, sublabel }, i) => (
             <div
               key={label}
               role="listitem"

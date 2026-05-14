@@ -14,6 +14,7 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Button from "@/components/ui/Button";
 import { useCaseTabs } from "@content/use-cases";
+import { useTranslation } from "@/hooks/useTranslation";
 import { cn } from "@/lib/utils";
 
 const iconMap: Record<string, React.ElementType> = {
@@ -24,18 +25,20 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 export default function UseCases() {
+  const t = useTranslation();
   const [activeTab, setActiveTab] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-10% 0px" });
 
-  const tab = useCaseTabs[activeTab];
+  const translatedTab = t.useCases.tabs[activeTab];
+  const metaTab = useCaseTabs[activeTab];
 
   return (
     <SectionWrapper id="use-cases" bg="primary">
       <Container>
         <div className="text-center mb-12">
-          <Eyebrow className="mb-4">Use Cases</Eyebrow>
-          <SectionTitle>One platform. Every kind of establishment.</SectionTitle>
+          <Eyebrow className="mb-4">{t.useCases.eyebrow}</Eyebrow>
+          <SectionTitle>{t.useCases.title}</SectionTitle>
         </div>
 
         {/* Tab list */}
@@ -44,12 +47,12 @@ export default function UseCases() {
           aria-label="Establishment types"
           className="flex gap-2 mb-10 overflow-x-auto pb-1 justify-center flex-wrap"
         >
-          {useCaseTabs.map((t, i) => (
+          {t.useCases.tabs.map((tab, i) => (
             <button
-              key={t.id}
+              key={useCaseTabs[i].id}
               role="tab"
               aria-selected={activeTab === i}
-              aria-controls={`tabpanel-${t.id}`}
+              aria-controls={`tabpanel-${useCaseTabs[i].id}`}
               onClick={() => setActiveTab(i)}
               className={cn(
                 "flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold-primary",
@@ -58,8 +61,8 @@ export default function UseCases() {
                   : "bg-[rgba(255,255,255,0.05)] text-gray-muted hover:text-white-soft border border-[rgba(201,162,76,0.15)] hover:border-[rgba(201,162,76,0.35)]"
               )}
             >
-              <span>{t.emoji}</span>
-              <span>{t.label}</span>
+              <span>{tab.emoji}</span>
+              <span>{tab.label}</span>
             </button>
           ))}
         </div>
@@ -68,7 +71,7 @@ export default function UseCases() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            id={`tabpanel-${tab.id}`}
+            id={`tabpanel-${metaTab.id}`}
             role="tabpanel"
             ref={ref}
             initial={{ opacity: 0, y: 16 }}
@@ -84,14 +87,15 @@ export default function UseCases() {
                   className="font-light text-white-pure leading-tight mb-3"
                   style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)" }}
                 >
-                  {tab.headline}
+                  {translatedTab.headline}
                 </h3>
-                <p className="text-gray-muted text-base leading-relaxed">{tab.subheadline}</p>
+                <p className="text-gray-muted text-base leading-relaxed">{translatedTab.subheadline}</p>
               </div>
 
-              <ul className="flex flex-col gap-4" aria-label={`${tab.label} features`}>
-                {tab.items.map(({ icon, title, description }) => {
-                  const Icon = iconMap[icon];
+              <ul className="flex flex-col gap-4" aria-label={`${translatedTab.label} features`}>
+                {translatedTab.items.map(({ title, description }, itemIdx) => {
+                  const metaItem = metaTab.items[itemIdx];
+                  const Icon = metaItem ? iconMap[metaItem.icon] : null;
                   return (
                     <li key={title} className="flex items-start gap-4">
                       <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-[rgba(201,162,76,0.1)] border border-[rgba(201,162,76,0.2)] flex items-center justify-center">
@@ -118,7 +122,7 @@ export default function UseCases() {
                     document.querySelector("#book-demo")?.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
-                  See it working for {tab.label.split(" &")[0]} →
+                  {t.useCases.ctaPrefix} {translatedTab.label.split(" &")[0]} →
                 </Button>
               </div>
             </div>
@@ -127,7 +131,7 @@ export default function UseCases() {
             <div
               className="relative rounded-sm border border-[rgba(201,162,76,0.15)] bg-bg-elevated overflow-hidden"
               style={{ minHeight: 380 }}
-              aria-label={`${tab.label} — visual demo placeholder`}
+              aria-label={`${translatedTab.label} — visual demo placeholder`}
             >
               {/* Decorative glow */}
               <div
@@ -143,24 +147,24 @@ export default function UseCases() {
                 {/* Fake toolbar */}
                 <div className="flex items-center gap-2 pb-3 border-b border-[rgba(201,162,76,0.1)]">
                   <div className="w-8 h-8 rounded-full bg-[rgba(201,162,76,0.15)] flex items-center justify-center text-gold-primary text-sm">
-                    {tab.emoji}
+                    {translatedTab.emoji}
                   </div>
                   <div>
                     <p className="text-white-soft text-xs font-semibold">Bell AI</p>
                     <p className="text-[10px] text-green-400 flex items-center gap-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
-                      Online · {tab.label}
+                      Online · {translatedTab.label}
                     </p>
                   </div>
                 </div>
 
                 {/* Mock chat messages */}
                 <div className="flex flex-col gap-3 flex-1 overflow-hidden">
-                  {tab.items.slice(0, 3).map((item, i) => (
+                  {translatedTab.items.slice(0, 3).map((item, i) => (
                     <div key={i} className={cn("flex gap-2", i % 2 === 1 ? "flex-row-reverse" : "")}>
                       {i % 2 === 0 && (
                         <div className="w-6 h-6 rounded-full bg-[rgba(201,162,76,0.15)] flex-shrink-0 flex items-center justify-center text-[10px]">
-                          {tab.emoji}
+                          {translatedTab.emoji}
                         </div>
                       )}
                       <div
@@ -179,7 +183,7 @@ export default function UseCases() {
                   {/* Typing indicator */}
                   <div className="flex gap-2 items-center">
                     <div className="w-6 h-6 rounded-full bg-[rgba(201,162,76,0.15)] flex-shrink-0 flex items-center justify-center text-[10px]">
-                      {tab.emoji}
+                      {translatedTab.emoji}
                     </div>
                     <div className="bg-[rgba(255,255,255,0.05)] rounded-2xl rounded-tl-sm px-4 py-2.5 flex gap-1.5 items-center">
                       {[0, 0.2, 0.4].map((delay, i) => (

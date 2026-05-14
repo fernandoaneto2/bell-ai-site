@@ -8,18 +8,12 @@ import Container from "@/components/ui/Container";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Eyebrow from "@/components/ui/Eyebrow";
-import { features } from "@content/features";
+import { useTranslation } from "@/hooks/useTranslation";
 
-const iconMap: Record<string, React.ElementType> = {
-  Layers,
-  Globe,
-  ArrowRightLeft,
-  CalendarCheck,
-  Mic,
-  BarChart2,
-};
+const FEATURE_ICONS = [Layers, Globe, ArrowRightLeft, CalendarCheck, Mic, BarChart2];
 
 export default function FeaturesGrid() {
+  const t = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-10% 0px" });
 
@@ -27,8 +21,8 @@ export default function FeaturesGrid() {
     <SectionWrapper id="features" bg="secondary">
       <Container>
         <div className="text-center mb-14">
-          <Eyebrow className="mb-4">Features</Eyebrow>
-          <SectionTitle>Built for hospitality, end to end.</SectionTitle>
+          <Eyebrow className="mb-4">{t.features.eyebrow}</Eyebrow>
+          <SectionTitle>{t.features.title}</SectionTitle>
         </div>
 
         <div
@@ -37,8 +31,8 @@ export default function FeaturesGrid() {
           role="list"
           aria-label="Product features"
         >
-          {features.map(({ icon, title, description }, i) => {
-            const Icon = iconMap[icon];
+          {t.features.items.map(({ title, description }, i) => {
+            const Icon = FEATURE_ICONS[i];
             return (
               <motion.div
                 key={title}

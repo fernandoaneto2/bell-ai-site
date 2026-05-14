@@ -8,15 +8,10 @@ import Container from "@/components/ui/Container";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Eyebrow from "@/components/ui/Eyebrow";
-
-const bullets = [
-  "Trained on YOUR establishment, not generic FAQs",
-  "Speaks every language your guests speak",
-  "Hands off to humans when it should",
-  "Live in days, not months",
-];
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function MeetBellAi() {
+  const t = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-10% 0px" });
 
@@ -31,24 +26,22 @@ export default function MeetBellAi() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col gap-6"
           >
-            <Eyebrow className="justify-start">The Solution</Eyebrow>
+            <Eyebrow className="justify-start">{t.meetBell.eyebrow}</Eyebrow>
             <SectionTitle as="h2" align="left">
-              An AI concierge that{" "}
-              <span className="font-semibold">never sleeps,</span>
+              {t.meetBell.titleA}{" "}
+              <span className="font-semibold">{t.meetBell.titleB}</span>
               <br />
-              never forgets, and{" "}
-              <span className="font-semibold">sounds like you.</span>
+              {t.meetBell.titleC}{" "}
+              <span className="font-semibold">{t.meetBell.titleD}</span>
             </SectionTitle>
             <p className="text-gray-muted text-base leading-relaxed max-w-md">
-              bell.ai connects to your booking system, your menu, your policies, and your brand
-              voice. Then it talks to your guests on WhatsApp, Instagram, and your website —
-              instantly, accurately, 24/7.
+              {t.meetBell.sub1}
             </p>
             <p className="text-gray-muted text-base leading-relaxed max-w-md">
-              When something needs a human, it hands off seamlessly to your team.
+              {t.meetBell.sub2}
             </p>
             <ul className="flex flex-col gap-3" aria-label="Key benefits">
-              {bullets.map((bullet) => (
+              {t.meetBell.bullets.map((bullet) => (
                 <li key={bullet} className="flex items-start gap-3">
                   <CheckCircle
                     size={17}

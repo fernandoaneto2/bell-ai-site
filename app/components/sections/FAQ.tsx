@@ -7,10 +7,11 @@ import Container from "@/components/ui/Container";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Eyebrow from "@/components/ui/Eyebrow";
-import { faqItems } from "@content/faq";
+import { useTranslation } from "@/hooks/useTranslation";
 import { cn } from "@/lib/utils";
 
 export default function FAQ() {
+  const t = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
@@ -19,8 +20,8 @@ export default function FAQ() {
     <SectionWrapper id="faq" bg="secondary">
       <Container>
         <div className="text-center mb-14">
-          <Eyebrow className="mb-4">FAQ</Eyebrow>
-          <SectionTitle>Common questions.</SectionTitle>
+          <Eyebrow className="mb-4">{t.faq.eyebrow}</Eyebrow>
+          <SectionTitle>{t.faq.title}</SectionTitle>
         </div>
 
         <div
@@ -28,7 +29,7 @@ export default function FAQ() {
           role="list"
           aria-label="Frequently asked questions"
         >
-          {faqItems.map(({ question, answer }, i) => {
+          {t.faq.items.map(({ question, answer }, i) => {
             const isOpen = openIndex === i;
             const itemId = `faq-item-${i}`;
             const panelId = `faq-panel-${i}`;

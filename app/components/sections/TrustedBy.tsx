@@ -1,5 +1,8 @@
+"use client";
+
 import Container from "@/components/ui/Container";
 import Hairline from "@/components/ui/Hairline";
+import { useTranslation } from "@/hooks/useTranslation";
 
 // TODO: replace with real client logos
 const logoPlaceholders = [
@@ -11,12 +14,14 @@ const logoPlaceholders = [
 ];
 
 export default function TrustedBy() {
+  const t = useTranslation();
+
   return (
     <div className="bg-bg-primary py-12">
       <Container>
         <Hairline className="mb-10" />
         <p className="text-center text-gray-muted text-sm tracking-wide mb-8">
-          Trusted by establishments across hospitality
+          {t.trustedBy}
         </p>
         <div
           className="flex flex-wrap items-center justify-center gap-8 md:gap-12"
