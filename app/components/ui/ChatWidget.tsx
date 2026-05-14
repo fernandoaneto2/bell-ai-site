@@ -2,8 +2,7 @@
 
 import { useEffect } from "react";
 
-// Replace with your n8n Chat Trigger webhook URL before going live
-const WEBHOOK_URL = "YOUR_N8N_WEBHOOK_URL";
+const WEBHOOK_URL = "https://duamorim.app.n8n.cloud/webhook/5ecd9dc9-dd34-490b-8011-349e7b4e98fa/chat";
 
 export default function ChatWidget() {
   useEffect(() => {
