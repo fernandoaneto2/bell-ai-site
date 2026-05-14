@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
@@ -51,6 +52,15 @@ export default function Navbar() {
               className="flex items-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold-primary focus-visible:outline-offset-2 rounded-sm"
               aria-label="bell.ai — home"
             >
+              <Image
+                src="/Emoji-bell.jpeg"
+                alt=""
+                width={32}
+                height={32}
+                className="h-8 w-8 object-contain mix-blend-screen"
+                priority
+                aria-hidden="true"
+              />
               <span className="text-xl font-light tracking-tight text-white-pure">
                 bell<span className="text-gold-primary">.</span>ai
               </span>

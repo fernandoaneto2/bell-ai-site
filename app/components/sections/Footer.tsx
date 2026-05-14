@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Hairline from "@/components/ui/Hairline";
 
@@ -24,13 +25,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
           {/* Col 1: Brand */}
           <div className="flex flex-col gap-4">
-            {/* TODO: replace with optimized SVG logo */}
             <a
               href="/"
-              className="text-xl font-light tracking-tight text-white-pure w-fit focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold-primary rounded-sm"
+              className="w-fit focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold-primary rounded-sm"
               aria-label="bell.ai — home"
             >
-              bell<span className="text-gold-primary">.</span>ai
+              <Image
+                src="/Logo BELL AI.jpeg"
+                alt="bell.ai"
+                width={80}
+                height={80}
+                className="h-20 w-20 object-contain mix-blend-screen"
+              />
             </a>
             <p className="text-gray-muted text-xs uppercase tracking-widest font-semibold" style={{ letterSpacing: "0.2em" }}>
               AI Concierge for Hospitality

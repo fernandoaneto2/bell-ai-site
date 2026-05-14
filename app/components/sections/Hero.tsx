@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Eyebrow from "@/components/ui/Eyebrow";
@@ -45,6 +46,21 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: copy */}
           <div className="flex flex-col items-start gap-6">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.7 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <Image
+                src="/Emoji-bell.jpeg"
+                alt="bell.ai mascot"
+                width={80}
+                height={80}
+                className="h-20 w-20 object-contain mix-blend-screen drop-shadow-[0_0_18px_rgba(201,162,76,0.4)]"
+                priority
+              />
+            </motion.div>
+
             <motion.div
               variants={fadeUp}
               initial="hidden"
