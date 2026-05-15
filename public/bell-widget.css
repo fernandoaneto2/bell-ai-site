@@ -1,36 +1,35 @@
 /* ── Bell AI — Chat Widget ── */
 
-/* CSS variables — n8n lê nativamente */
 :root {
   --chat--color--primary:           #c9a24c;
   --chat--color--primary-shade-50:  #b08a38;
   --chat--color--primary-shade-100: #8b6f2e;
   --chat--color--secondary:         #c9a24c;
   --chat--color--white:             #ffffff;
-  --chat--color--light:             #141414;
-  --chat--color--medium:            #8a8a8a;
-  --chat--color--dark:              #000000;
+  --chat--color--light:             #1a1a1a;
+  --chat--color--medium:            #888888;
+  --chat--color--dark:              #111111;
   --chat--color--typing:            #c9a24c;
 
   --chat--font-family:    "Manrope", system-ui, sans-serif;
-  --chat--border-radius:  14px;
+  --chat--border-radius:  18px;
 
   --chat--window--width:  380px;
-  --chat--window--height: 580px;
+  --chat--window--height: 600px;
 
-  --chat--header--background: #0a0a0a;
+  --chat--header--background: #111111;
   --chat--header--color:      #ffffff;
 
-  --chat--body--background:          #000000;
-  --chat--message--bot--background:  #141414;
-  --chat--message--bot--color:       #e8e8e8;
+  --chat--body--background:          #111111;
+  --chat--message--bot--background:  #1e1e1e;
+  --chat--message--bot--color:       #f0f0f0;
   --chat--message--user--background: #c9a24c;
   --chat--message--user--color:      #000000;
 
-  --chat--input--background:          #0a0a0a;
-  --chat--input--border-color:        rgba(201, 162, 76, 0.2);
+  --chat--input--background:          #1a1a1a;
+  --chat--input--border-color:        transparent;
   --chat--input--border-color-active: #c9a24c;
-  --chat--input--placeholder-color:   #8a8a8a;
+  --chat--input--placeholder-color:   #666666;
 
   --chat--toggle--size:               56px;
   --chat--toggle--background:         #c9a24c;
@@ -41,124 +40,161 @@
 
 /* ── Janela ── */
 .chat-window {
-  background:    #000000;
-  border:        1px solid rgba(201, 162, 76, 0.2);
-  border-radius: 16px;
-  box-shadow:    0 20px 50px rgba(0, 0, 0, 0.75);
+  background:    #111111;
+  border:        1px solid rgba(201, 162, 76, 0.25);
+  border-radius: 20px;
+  box-shadow:    0 20px 60px rgba(0, 0, 0, 0.8);
   overflow:      hidden;
   font-family:   "Manrope", system-ui, sans-serif;
 }
 
 /* ── Header ── */
 .chat-header {
-  background:    #0a0a0a;
-  border-bottom: 1px solid rgba(201, 162, 76, 0.15);
-  padding:       14px 18px;
+  background:    #111111;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding:       14px 16px;
   display:       flex;
   align-items:   center;
   gap:           12px;
 }
 
-/* Avatar: círculo dourado com ícone de pessoa */
+/* Avatar com sino dourado */
 .chat-header::before {
-  content:             "";
-  flex-shrink:         0;
-  width:               40px;
-  height:              40px;
-  border-radius:       50%;
-  background-color:    #c9a24c;
-  background-image:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 20a8 8 0 0 1 16 0'/%3E%3Cpath d='M19 8h2m-1-1v2'/%3E%3C/svg%3E");
-  background-size:     60% 60%;
-  background-repeat:   no-repeat;
-  background-position: center;
+  content:        "🛎️";
+  font-size:      22px;
+  width:          42px;
+  height:         42px;
+  border-radius:  50%;
+  background:     #1e1e1e;
+  display:        flex;
+  align-items:    center;
+  justify-content: center;
+  flex-shrink:    0;
+  line-height:    1;
 }
 
 /* Título "Bell AI" */
 .chat-heading {
   color:       #ffffff;
-  font-size:   15px;
-  font-weight: 600;
+  font-size:   16px;
+  font-weight: 700;
   margin:      0;
+  line-height: 1.2;
 }
 
-/* Subtítulo — dot verde + texto */
-.chat-header p {
-  color:       #8a8a8a;
+/* "Online 24/7" com dot verde */
+.chat-header p,
+.chat-header [class*="subtitle"] {
+  color:       #22c55e;
   font-size:   12px;
+  font-weight: 500;
   margin:      0;
   display:     flex;
   align-items: center;
   gap:         5px;
 }
 
-.chat-header p::before {
+.chat-header p::before,
+.chat-header [class*="subtitle"]::before {
   content:       "";
   width:         7px;
   height:        7px;
   border-radius: 50%;
   background:    #22c55e;
-  box-shadow:    0 0 6px rgba(34, 197, 94, 0.6);
+  box-shadow:    0 0 6px rgba(34, 197, 94, 0.7);
   flex-shrink:   0;
 }
 
-/* ── Mensagens ── */
+/* ── Botão fechar ── */
+.chat-close-button {
+  background: transparent;
+  color:      rgba(255, 255, 255, 0.4);
+  margin-left: auto;
+}
+.chat-close-button:hover { color: #ffffff; }
+
+/* ── Área de mensagens ── */
 .chat-messages-list {
-  background: #000000;
-  padding:    16px;
+  background: #111111;
+  padding:    16px 14px;
 }
 
 .chat-message {
-  font-size:     13.5px;
-  line-height:   1.55;
-  max-width:     82%;
+  font-size:   14px;
+  line-height: 1.5;
+  max-width:   80%;
 }
 
+/* Mensagem do bot — bolha escura */
 .chat-message-from-bot {
-  background:    #141414;
-  color:         #e8e8e8;
-  border:        1px solid rgba(201, 162, 76, 0.1);
-  border-radius: 14px 14px 14px 4px;
+  background:    #1e1e1e;
+  color:         #f0f0f0;
+  border-radius: 16px;
+  border:        none;
 }
 
+/* Mensagem do usuário — bolha dourada */
 .chat-message-from-user {
   background:    #c9a24c;
   color:         #000000;
   font-weight:   500;
-  border-radius: 14px 14px 4px 14px;
+  border-radius: 16px;
 }
 
-/* ── Input area ── */
+/* ── Footer / Input ── */
 .chat-footer {
-  background: #0a0a0a;
-  border-top: 1px solid rgba(201, 162, 76, 0.12);
+  background: #111111;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding:    12px 14px;
 }
 
+/* Wrapper do input — pill shape */
 .chat-inputs {
-  background:    #0a0a0a;
-  border:        1px solid rgba(201, 162, 76, 0.2);
-  border-radius: 10px;
-  transition:    border-color 0.2s ease;
+  background:    #1e1e1e;
+  border:        1px solid rgba(201, 162, 76, 0.15);
+  border-radius: 999px;
+  display:       flex;
+  align-items:   center;
+  padding:       4px 4px 4px 16px;
+  gap:           8px;
 }
 
 .chat-inputs:focus-within {
-  border-color: #c9a24c;
+  border-color: rgba(201, 162, 76, 0.4);
 }
 
 .chat-input {
-  background: transparent;
-  color:      #ffffff;
-  font-size:  13.5px;
-  resize:     none;
+  background:  transparent;
+  color:       #ffffff;
+  font-size:   14px;
+  font-family: "Manrope", system-ui, sans-serif;
+  border:      none;
+  outline:     none;
+  resize:      none;
+  flex:        1;
+  min-height:  36px;
+  max-height:  120px;
+  padding:     6px 0;
+  line-height: 1.4;
 }
 
 .chat-input::placeholder {
-  color: #8a8a8a;
+  color: #666666;
 }
 
+/* Botão enviar — círculo dourado */
 .chat-input-send-button {
   background:    #c9a24c;
-  border-radius: 8px;
+  border:        none;
+  border-radius: 50%;
+  width:         36px;
+  height:        36px;
+  min-width:     36px;
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+  cursor:        pointer;
+  flex-shrink:   0;
   transition:    background 0.2s ease, transform 0.15s ease;
 }
 
@@ -170,43 +206,35 @@
 .chat-input-send-button svg {
   fill:   #000000;
   color:  #000000;
+  width:  16px;
+  height: 16px;
 }
 
 /* ── Botão flutuante ── */
 .chat-window-toggle {
   background: #c9a24c;
   border:     none;
+  box-shadow: 0 4px 20px rgba(201, 162, 76, 0.3);
 }
-
 .chat-window-toggle svg {
   fill:  #000000;
   color: #000000;
 }
 
-/* ── Fechar ── */
-.chat-close-button {
-  color:      rgba(255, 255, 255, 0.5);
-  background: transparent;
-}
-
-.chat-close-button:hover {
-  color: #ffffff;
-}
-
 /* ── Typing dots ── */
 .chat-message-typing-circle {
-  background: #c9a24c;
+  background: #666666;
 }
 
 /* ── Scrollbar ── */
-.chat-messages-list::-webkit-scrollbar       { width: 4px; }
+.chat-messages-list::-webkit-scrollbar       { width: 3px; }
 .chat-messages-list::-webkit-scrollbar-track { background: transparent; }
 .chat-messages-list::-webkit-scrollbar-thumb {
-  background:    rgba(201, 162, 76, 0.3);
+  background:    rgba(201, 162, 76, 0.25);
   border-radius: 4px;
 }
 
-/* ── Mobile — fullscreen ── */
+/* ── Mobile fullscreen ── */
 @media (max-width: 480px) {
   .chat-window {
     width:         100vw !important;
@@ -215,12 +243,6 @@
     border:        none !important;
     inset:         0 !important;
   }
-
-  .chat-input {
-    font-size: 16px; /* evita zoom no iOS */
-  }
-
-  .chat-message {
-    max-width: 88%;
-  }
+  .chat-input { font-size: 16px; }
+  .chat-message { max-width: 86%; }
 }

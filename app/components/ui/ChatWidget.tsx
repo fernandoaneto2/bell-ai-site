@@ -14,7 +14,7 @@ export default function ChatWidget() {
 
     const bellCSS = document.createElement("link");
     bellCSS.rel = "stylesheet";
-    bellCSS.href = "/bell-widget.css?v=20";
+    bellCSS.href = "/bell-widget.css?v=21";
     document.head.appendChild(bellCSS);
 
     const script = document.createElement("script");
@@ -29,16 +29,16 @@ export default function ChatWidget() {
         loadPreviousSession: false,
         defaultLanguage: 'en',
         initialMessages: [
-          "Hi! I'm the Harbor Catch assistant 🦪 Ask me about hours, menu, location, or book a table."
+          "Olá! Sou o Bell 🛎️ Posso ajudar com reservas, cardápio ou horários."
         ],
         i18n: {
           en: {
             title: 'Bell AI',
-            subtitle: '',
+            subtitle: 'Online 24/7',
             footer: '',
-            getStarted: 'Start chatting',
-            inputPlaceholder: 'Type your question..',
-            closeButtonTooltip: 'Close'
+            getStarted: 'Iniciar conversa',
+            inputPlaceholder: 'Digite uma mensagem...',
+            closeButtonTooltip: 'Fechar'
           }
         }
       });
