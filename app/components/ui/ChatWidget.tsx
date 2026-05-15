@@ -2,35 +2,45 @@
 
 import { useEffect } from "react";
 
-const WEBHOOK_URL = "https://duamorim.app.n8n.cloud/webhook/5ecd9dc9-dd34-490b-8011-349e7b4e98fa/chat";
+const WEBHOOK_URL =
+  "https://duamorim.app.n8n.cloud/webhook/0e8d08c6-63f4-4ed8-9181-bc3a262d20b4/chat";
 
 export default function ChatWidget() {
   useEffect(() => {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = "https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css";
-    document.head.appendChild(link);
+    // n8n base styles
+    const n8nStyles = document.createElement("link");
+    n8nStyles.rel = "stylesheet";
+    n8nStyles.href = "https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css";
+    document.head.appendChild(n8nStyles);
+
+    // bell.ai brand override
+    const brandStyles = document.createElement("link");
+    brandStyles.rel = "stylesheet";
+    brandStyles.href = "/bell-widget.css";
+    document.head.appendChild(brandStyles);
 
     const script = document.createElement("script");
     script.type = "module";
     script.textContent = `
       import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
       createChat({
         webhookUrl: '${WEBHOOK_URL}',
         mode: 'window',
         showWelcomeScreen: false,
+        defaultLanguage: 'en',
         initialMessages: [
-          'Olá! Sou o Bell, seu concierge virtual 24/7. 🛎️',
-          'Como posso ajudar hoje?'
+          'Welcome to bell.ai. 🛎️',
+          'Ask me about our product, pricing, or book a demo — I\\'m here to help.'
         ],
         i18n: {
           en: {
             title: 'Bell AI',
-            subtitle: 'Concierge virtual · 24/7',
+            subtitle: '',
             footer: '',
-            getStarted: 'Iniciar conversa',
-            inputPlaceholder: 'Digite sua mensagem...',
-            closeButtonTooltip: 'Fechar',
+            getStarted: 'Start chatting',
+            inputPlaceholder: 'Ask anything...',
+            closeButtonTooltip: 'Close',
           },
         },
       });
@@ -38,7 +48,8 @@ export default function ChatWidget() {
     document.head.appendChild(script);
 
     return () => {
-      if (document.head.contains(link)) document.head.removeChild(link);
+      if (document.head.contains(n8nStyles)) document.head.removeChild(n8nStyles);
+      if (document.head.contains(brandStyles)) document.head.removeChild(brandStyles);
       if (document.head.contains(script)) document.head.removeChild(script);
     };
   }, []);

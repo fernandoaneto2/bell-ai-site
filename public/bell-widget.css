@@ -1,0 +1,172 @@
+/* ── bell.ai Chat Widget — Brand Override ── */
+
+/* Core palette */
+:root {
+  --chat--color--primary:           #c9a24c;
+  --chat--color--primary-shade-50:  #b08a38;
+  --chat--color--primary-shade-100: #8b6f2e;
+  --chat--color--secondary:         #e5c580;
+  --chat--color--white:             #ffffff;
+  --chat--color--black:             #000000;
+  --chat--color--light-gray:        #111111;
+  --chat--color--medium-gray:       #1a1a1a;
+  --chat--color--dark-gray:         #8a8a8a;
+
+  /* Typography */
+  --chat--font-family:  "Manrope", system-ui, sans-serif;
+  --chat--font-size:    14px;
+  --chat--line-height:  1.55;
+
+  /* Layout */
+  --chat--border-radius:       16px;
+  --chat--window--width:       380px;
+  --chat--window--height:      560px;
+
+  /* Header */
+  --chat--header--background:  #0a0a0a;
+  --chat--header--color:       #ffffff;
+  --chat--header--border-color: rgba(201, 162, 76, 0.2);
+
+  /* Body / messages */
+  --chat--body--background:              #000000;
+  --chat--message--bot--background:      #141414;
+  --chat--message--bot--color:           #e8e8e8;
+  --chat--message--user--background:     #c9a24c;
+  --chat--message--user--color:          #000000;
+
+  /* Input */
+  --chat--input--background:          #0a0a0a;
+  --chat--input--border-color:        rgba(201, 162, 76, 0.2);
+  --chat--input--border-color-active: #c9a24c;
+  --chat--input--placeholder-color:   #5a5a5a;
+
+  /* Toggle button */
+  --chat--toggle--background:        #c9a24c;
+  --chat--toggle--hover--background: #b08a38;
+  --chat--toggle--active--background:#8b6f2e;
+  --chat--toggle--color:             #000000;
+  --chat--toggle--size:              56px;
+}
+
+/* ── Window chrome ── */
+.n8n-chat .chat-window {
+  border: 1px solid rgba(201, 162, 76, 0.2);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(201, 162, 76, 0.08),
+    0 0 40px rgba(201, 162, 76, 0.04);
+  background: #000000;
+}
+
+/* ── Header ── */
+.n8n-chat .chat-window-header {
+  border-bottom: 1px solid rgba(201, 162, 76, 0.15);
+  padding: 16px 20px;
+}
+
+.n8n-chat .chat-window-header .title {
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+/* Gold status dot */
+.n8n-chat .chat-window-header::after {
+  content: "● Online 24/7";
+  display: block;
+  font-size: 11px;
+  color: #4ade80;
+  margin-top: 2px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ── Messages ── */
+.n8n-chat .chat-message {
+  font-size: 13.5px;
+  line-height: 1.55;
+  max-width: 82%;
+}
+
+.n8n-chat .chat-message.chat-message-from-bot {
+  border-radius: 16px 16px 16px 4px;
+  border: 1px solid rgba(201, 162, 76, 0.1);
+}
+
+.n8n-chat .chat-message.chat-message-from-user {
+  border-radius: 16px 16px 4px 16px;
+  font-weight: 500;
+}
+
+/* ── Input area ── */
+.n8n-chat .chat-input-wrapper {
+  border-top: 1px solid rgba(201, 162, 76, 0.12);
+  padding: 12px 16px;
+  background: #000000;
+}
+
+.n8n-chat .chat-input {
+  border-radius: 12px;
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 13.5px;
+  resize: none;
+  transition: border-color 0.2s ease;
+}
+
+/* ── Send button ── */
+.n8n-chat .chat-input-send-button {
+  border-radius: 10px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.n8n-chat .chat-input-send-button:hover {
+  transform: scale(1.05);
+}
+
+/* ── Toggle (floating button) ── */
+.n8n-chat .chat-toggle {
+  box-shadow:
+    0 8px 24px rgba(201, 162, 76, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.n8n-chat .chat-toggle:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 12px 32px rgba(201, 162, 76, 0.45),
+    0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Scrollbar ── */
+.n8n-chat .chat-messages-list::-webkit-scrollbar {
+  width: 4px;
+}
+.n8n-chat .chat-messages-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.n8n-chat .chat-messages-list::-webkit-scrollbar-thumb {
+  background: rgba(201, 162, 76, 0.25);
+  border-radius: 4px;
+}
+.n8n-chat .chat-messages-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 162, 76, 0.45);
+}
+
+/* ── Typing indicator ── */
+.n8n-chat .chat-typing-dots span {
+  background: #c9a24c;
+}
+
+/* ── Welcome / get-started button ── */
+.n8n-chat .chat-get-started-button {
+  background: #c9a24c;
+  color: #000000;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+.n8n-chat .chat-get-started-button:hover {
+  background: #b08a38;
+}
