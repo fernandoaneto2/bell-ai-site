@@ -93,6 +93,16 @@ export interface Translations {
     sub: string;
     cta: string;
   };
+  manifesto: {
+    tagline: string;
+    line1: string;
+    line2: string;
+    line3: string;
+    line4: string;
+    body: string;
+    close1: string;
+    close2: string;
+  };
 }
 
 export const translations: Record<Lang, Translations> = {
@@ -119,7 +129,7 @@ export const translations: Record<Lang, Translations> = {
     },
     problem: {
       eyebrow: "The Problem",
-      title: "Hospitality runs on conversations.\nMost of them shouldn't need a human.",
+      title: "Because every missed call is a lost reservation.\nEvery delayed answer is a frustrated customer.",
       sub: "Your team is overwhelmed by repetitive questions while real opportunities slip away.",
       items: [
         {
@@ -434,6 +444,16 @@ export const translations: Record<Lang, Translations> = {
       sub: "From restaurant reservations to hotel check-ins — every conversation automated, every guest impressed.",
       cta: "Book a Free Demo",
     },
+    manifesto: {
+      tagline: "Bell.ai was built for hospitality first.",
+      line1: "Because every missed call",
+      line2: "is a lost reservation.",
+      line3: "Every delayed answer",
+      line4: "is a frustrated customer.",
+      body: "Bell.ai helps restaurants respond instantly, manage reservations automatically, and deliver a smoother customer experience — 24/7.",
+      close1: "So your guests feel taken care of.",
+      close2: "Even when your team is busy.",
+    },
   },
 
   pt: {
@@ -459,7 +479,7 @@ export const translations: Record<Lang, Translations> = {
     },
     problem: {
       eyebrow: "O Problema",
-      title: "A hotelaria vive de conversas.\nA maioria delas não precisa de um humano.",
+      title: "Porque cada ligação perdida é uma reserva perdida.\nCada resposta atrasada é um cliente frustrado.",
       sub: "Sua equipe está sobrecarregada com perguntas repetitivas enquanto oportunidades reais escapam.",
       items: [
         {
@@ -774,6 +794,16 @@ export const translations: Record<Lang, Translations> = {
       sub: "De reservas em restaurantes ao check-in em hotéis — cada conversa automatizada, cada hóspede impressionado.",
       cta: "Agendar Demo Gratuita",
     },
+    manifesto: {
+      tagline: "O Bell.ai foi criado para a hotelaria.",
+      line1: "Porque cada ligação perdida",
+      line2: "é uma reserva perdida.",
+      line3: "Cada resposta atrasada",
+      line4: "é um cliente frustrado.",
+      body: "O Bell.ai ajuda restaurantes a responder na hora, gerenciar reservas automaticamente e entregar uma experiência mais fluida — 24/7.",
+      close1: "Para que seus clientes se sintam bem atendidos.",
+      close2: "Mesmo quando sua equipe está ocupada.",
+    },
   },
 
   es: {
@@ -799,7 +829,7 @@ export const translations: Record<Lang, Translations> = {
     },
     problem: {
       eyebrow: "El Problema",
-      title: "La hostelería vive de conversaciones.\nLa mayoría no deberían requerir un humano.",
+      title: "Porque cada llamada perdida es una reserva perdida.\nCada respuesta tardía es un cliente frustrado.",
       sub: "Tu equipo está abrumado con preguntas repetitivas mientras las oportunidades reales se escapan.",
       items: [
         {
@@ -1114,6 +1144,16 @@ export const translations: Record<Lang, Translations> = {
       sub: "Desde reservas en restaurantes hasta check-ins en hoteles — cada conversación automatizada, cada huésped impresionado.",
       cta: "Reservar Demo Gratuita",
     },
+    manifesto: {
+      tagline: "Bell.ai fue creado para la hotelería.",
+      line1: "Porque cada llamada perdida",
+      line2: "es una reserva perdida.",
+      line3: "Cada respuesta tardía",
+      line4: "es un cliente frustrado.",
+      body: "Bell.ai ayuda a los restaurantes a responder al instante, gestionar reservas automáticamente y ofrecer una experiencia más fluida — 24/7.",
+      close1: "Para que tus clientes se sientan bien atendidos.",
+      close2: "Incluso cuando tu equipo está ocupado.",
+    },
   },
 
   fr: {
@@ -1139,7 +1179,7 @@ export const translations: Record<Lang, Translations> = {
     },
     problem: {
       eyebrow: "Le Problème",
-      title: "L'hôtellerie vit de conversations.\nLa plupart n'ont pas besoin d'un humain.",
+      title: "Parce que chaque appel manqué est une réservation perdue.\nChaque réponse tardive est un client frustré.",
       sub: "Votre équipe est submergée de questions répétitives pendant que les vraies opportunités passent à côté.",
       items: [
         {
@@ -1454,6 +1494,16 @@ export const translations: Record<Lang, Translations> = {
       sub: "Des réservations au restaurant aux check-ins d'hôtel — chaque conversation automatisée, chaque client impressionné.",
       cta: "Réserver une Démo Gratuite",
     },
+    manifesto: {
+      tagline: "Bell.ai a été conçu pour l'hôtellerie.",
+      line1: "Parce que chaque appel manqué",
+      line2: "est une réservation perdue.",
+      line3: "Chaque réponse tardive",
+      line4: "est un client frustré.",
+      body: "Bell.ai aide les restaurants à répondre instantanément, gérer les réservations automatiquement et offrir une expérience client plus fluide — 24h/24.",
+      close1: "Pour que vos clients se sentent pris en charge.",
+      close2: "Même quand votre équipe est occupée.",
+    },
   },
 
   de: {
@@ -1479,7 +1529,7 @@ export const translations: Record<Lang, Translations> = {
     },
     problem: {
       eyebrow: "Das Problem",
-      title: "Das Gastgewerbe lebt von Gesprächen.\nDie meisten davon brauchen keinen Menschen.",
+      title: "Denn jeder verpasste Anruf ist eine verlorene Reservierung.\nJede verzögerte Antwort ist ein frustrierter Kunde.",
       sub: "Ihr Team ist mit repetitiven Fragen überwältigt, während echte Chancen verloren gehen.",
       items: [
         {
@@ -1794,6 +1844,16 @@ export const translations: Record<Lang, Translations> = {
       sub: "Von Restaurantreservierungen bis zum Hotel-Check-in — jedes Gespräch automatisiert, jeder Gast begeistert.",
       cta: "Kostenlose Demo buchen",
     },
+    manifesto: {
+      tagline: "Bell.ai wurde für die Gastronomie entwickelt.",
+      line1: "Denn jeder verpasste Anruf",
+      line2: "ist eine verlorene Reservierung.",
+      line3: "Jede verzögerte Antwort",
+      line4: "ist ein frustrierter Kunde.",
+      body: "Bell.ai hilft Restaurants, sofort zu antworten, Reservierungen automatisch zu verwalten und ein reibungsloseres Kundenerlebnis zu bieten — rund um die Uhr.",
+      close1: "Damit sich Ihre Gäste gut betreut fühlen.",
+      close2: "Auch wenn Ihr Team beschäftigt ist.",
+    },
   },
 
   it: {
@@ -1819,7 +1879,7 @@ export const translations: Record<Lang, Translations> = {
     },
     problem: {
       eyebrow: "Il Problema",
-      title: "L'ospitalità vive di conversazioni.\nLa maggior parte non richiede un umano.",
+      title: "Perché ogni chiamata persa è una prenotazione persa.\nOgni risposta tardiva è un cliente frustrato.",
       sub: "Il tuo team è sopraffatto da domande ripetitive mentre le opportunità reali sfuggono.",
       items: [
         {
@@ -2133,6 +2193,16 @@ export const translations: Record<Lang, Translations> = {
       title: "Guarda Bell rispondere in tempo reale.",
       sub: "Dalle prenotazioni nei ristoranti al check-in negli hotel — ogni conversazione automatizzata, ogni ospite impressionato.",
       cta: "Prenota una Demo Gratuita",
+    },
+    manifesto: {
+      tagline: "Bell.ai è stato creato per l'ospitalità.",
+      line1: "Perché ogni chiamata persa",
+      line2: "è una prenotazione persa.",
+      line3: "Ogni risposta tardiva",
+      line4: "è un cliente frustrato.",
+      body: "Bell.ai aiuta i ristoranti a rispondere istantaneamente, gestire le prenotazioni in automatico e offrire un'esperienza cliente più fluida — 24/7.",
+      close1: "Così i vostri ospiti si sentono coccolati.",
+      close2: "Anche quando il vostro team è impegnato.",
     },
   },
 };

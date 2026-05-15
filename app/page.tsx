@@ -2,6 +2,7 @@ import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import TrustedBy from "@/components/sections/TrustedBy";
 import TheProblem from "@/components/sections/TheProblem";
+import Manifesto from "@/components/sections/Manifesto";
 import MeetBellAi from "@/components/sections/MeetBellAi";
 import HowItWorks from "@/components/sections/HowItWorks";
 import LiveDemo from "@/components/sections/LiveDemo";
@@ -22,6 +23,7 @@ export default function Home() {
         <Hero />
         <TrustedBy />
         <TheProblem />
+        <Manifesto />
         <MeetBellAi />
         <HowItWorks />
         <LiveDemo />
