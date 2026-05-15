@@ -40,12 +40,12 @@
 
 /* ── Janela ── */
 .chat-window {
-  background:    #111111;
-  border:        1px solid rgba(201, 162, 76, 0.25);
-  border-radius: 20px;
-  box-shadow:    0 20px 60px rgba(0, 0, 0, 0.8);
-  overflow:      hidden;
-  font-family:   "Manrope", system-ui, sans-serif;
+  background:    #111111 !important;
+  border:        1.5px solid #c9a24c !important;
+  border-radius: 20px !important;
+  box-shadow:    0 20px 60px rgba(0, 0, 0, 0.8) !important;
+  overflow:      hidden !important;
+  font-family:   "Manrope", system-ui, sans-serif !important;
 }
 
 /* ── Header ── */
@@ -150,9 +150,11 @@
   border-color: transparent !important;
 }
 
-/* Elementos dentro do pill herdam o fundo do pill */
+/* Qualquer wrapper dentro do footer vira transparente */
 .chat-inputs-controls,
-.chat-input-left-panel {
+.chat-input-left-panel,
+.chat-footer > div,
+.chat-footer > form {
   background: transparent !important;
   border:     none !important;
 }
@@ -195,7 +197,7 @@
 }
 
 .chat-input::placeholder {
-  color: #666666;
+  color: #666666 !important;
 }
 
 /* Botão enviar — círculo dourado */
