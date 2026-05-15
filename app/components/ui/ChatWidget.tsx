@@ -26,10 +26,11 @@ export default function ChatWidget() {
         webhookUrl: '${WEBHOOK_URL}',
         mode: 'window',
         showWelcomeScreen: false,
+        loadPreviousSession: false,
         defaultLanguage: 'en',
         initialMessages: [
-          "Welcome to Harbor Catch.",
-          "Ask me about our menu, hours, or book a table — I'm here to help."
+          "Hi! I'm the Harbor Catch assistant 🦪",
+          "Ask me about hours, menu, location, or book a table."
         ],
         i18n: {
           en: {
@@ -37,7 +38,7 @@ export default function ChatWidget() {
             subtitle: '',
             footer: '',
             getStarted: 'Start chatting',
-            inputPlaceholder: 'Ask anything...',
+            inputPlaceholder: 'Type your question..',
             closeButtonTooltip: 'Close'
           }
         }
