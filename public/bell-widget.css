@@ -21,22 +21,34 @@
   --chat--header--background:  #0a0a0a;
   --chat--header--color:       #ffffff;
 
-  --chat--body--background:             #000000;
-  --chat--message--bot--background:     #141414;
-  --chat--message--bot--color:          #e8e8e8;
-  --chat--message--user--background:    #c9a24c;
-  --chat--message--user--color:         #000000;
+  --chat--body--background:          #000000;
+  --chat--message--bot--background:  #141414;
+  --chat--message--bot--color:       #e8e8e8;
+  --chat--message--user--background: #c9a24c;
+  --chat--message--user--color:      #000000;
 
-  --chat--input--background:           #0a0a0a;
-  --chat--input--border-color:         rgba(201, 162, 76, 0.2);
-  --chat--input--border-color-active:  #c9a24c;
-  --chat--input--placeholder-color:    #5a5a5a;
+  --chat--input--background:          #0a0a0a;
+  --chat--input--border-color:        rgba(201, 162, 76, 0.2);
+  --chat--input--border-color-active: #c9a24c;
+  --chat--input--placeholder-color:   #5a5a5a;
 
-  /* Toggle size */
-  --chat--toggle--size: 72px;
+  /* Move the real toggle off-screen — our React bell handles clicks */
+  --chat--toggle--size: 0px;
 }
 
-/* ── Bell ring animation ── */
+/* ── Hide the n8n native toggle (visibility keeps it clickable via JS) ── */
+.chat-toggle {
+  visibility: hidden !important;
+  position:   fixed    !important;
+  bottom:     -200px   !important;
+  right:      -200px   !important;
+  pointer-events: none !important;
+}
+
+/* ─────────────────────────────────────────────
+   OUR BELL BUTTON
+   ───────────────────────────────────────────── */
+
 @keyframes bellRing {
   0%,  55%, 100% { transform: rotate(0deg);  }
   60%            { transform: rotate(14deg);  }
@@ -49,44 +61,43 @@
   95%            { transform: rotate(0deg);   }
 }
 
-/* ─────────────────────────────────────────────
-   Toggle button — replace n8n icon with bell image
-   ───────────────────────────────────────────── */
-.chat-toggle {
-  background:  transparent !important;
-  box-shadow:  none !important;
-  border:      none !important;
-  overflow:    visible !important;
-  position:    fixed !important;
+.bell-fab {
+  position:   fixed;
+  bottom:     24px;
+  right:      24px;
+  z-index:    9999;
+  width:      72px;
+  height:     72px;
+  background: transparent;
+  border:     none;
+  padding:    0;
+  cursor:     pointer;
+  display:    flex;
+  align-items:     center;
+  justify-content: center;
 }
 
-/* Hide every child element the n8n widget puts inside (svg, img, span…) */
-.chat-toggle > * {
-  display: none !important;
+.bell-fab:focus-visible {
+  outline:        2px solid #c9a24c;
+  outline-offset: 4px;
+  border-radius:  50%;
 }
 
-/* Render the bell image via ::before pseudo-element */
-.chat-toggle::before {
-  content: '';
-  display: block;
-  width:  72px;
-  height: 72px;
-  background-image:    url('/Emoji-bell-sem-fundo.png');
-  background-size:     contain;
-  background-repeat:   no-repeat;
-  background-position: center;
-  filter: drop-shadow(0 4px 18px rgba(201, 162, 76, 0.55));
-  transform-origin: 50% 12%;   /* swing from the handle at the top */
+.bell-fab__img {
+  width:  68px !important;
+  height: 68px !important;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 20px rgba(201, 162, 76, 0.6));
+  transform-origin: 50% 10%;          /* swing from the handle */
   animation: bellRing 4s ease-in-out infinite;
 }
 
-/* ── Window chrome ── */
+/* ── Chat window ── */
 .n8n-chat .chat-window {
   border: 1px solid rgba(201, 162, 76, 0.2);
   box-shadow:
     0 24px 60px rgba(0, 0, 0, 0.75),
-    0 0 0 1px rgba(201, 162, 76, 0.08),
-    0 0 40px rgba(201, 162, 76, 0.04);
+    0 0 0 1px rgba(201, 162, 76, 0.08);
   background: #000000;
 }
 
@@ -99,7 +110,6 @@
 .n8n-chat .chat-window-header .title {
   font-weight: 600;
   font-size: 15px;
-  letter-spacing: -0.01em;
   color: #ffffff;
 }
 
@@ -120,7 +130,7 @@
   font-weight: 500;
 }
 
-/* ── Input area ── */
+/* ── Input ── */
 .n8n-chat .chat-input-wrapper {
   border-top: 1px solid rgba(201, 162, 76, 0.12);
   padding: 12px 16px;
@@ -140,13 +150,10 @@
   border-radius: 10px;
   transition: background 0.2s ease, transform 0.15s ease;
 }
-
-.n8n-chat .chat-input-send-button:hover {
-  transform: scale(1.05);
-}
+.n8n-chat .chat-input-send-button:hover { transform: scale(1.05); }
 
 /* ── Scrollbar ── */
-.n8n-chat .chat-messages-list::-webkit-scrollbar      { width: 4px; }
+.n8n-chat .chat-messages-list::-webkit-scrollbar       { width: 4px; }
 .n8n-chat .chat-messages-list::-webkit-scrollbar-track { background: transparent; }
 .n8n-chat .chat-messages-list::-webkit-scrollbar-thumb {
   background: rgba(201, 162, 76, 0.25);
@@ -156,7 +163,7 @@
   background: rgba(201, 162, 76, 0.45);
 }
 
-/* ── Typing indicator ── */
+/* ── Typing dots ── */
 .n8n-chat .chat-typing-dots span { background: #c9a24c; }
 
 /* ── Get-started button ── */
