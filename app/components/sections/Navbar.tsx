@@ -48,21 +48,17 @@ export default function Navbar() {
             {/* Logo */}
             <a
               href="/"
-              className="flex items-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold-primary focus-visible:outline-offset-2 rounded-sm"
+              className="flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold-primary focus-visible:outline-offset-2 rounded-sm"
               aria-label="bell.ai — home"
             >
               <Image
-                src="/Emoji-bell-sem-fundo.png"
-                alt=""
-                width={32}
-                height={32}
-                className="h-8 w-8 object-contain"
+                src="/Logo_BELL_sem_fundo.png"
+                alt="bell.ai"
+                width={96}
+                height={36}
+                className="h-9 w-auto object-contain"
                 priority
-                aria-hidden="true"
               />
-              <span className="text-xl font-light tracking-tight text-white-pure">
-                bell<span className="text-gold-primary">.</span>ai
-              </span>
             </a>
 
             {/* Desktop links */}
