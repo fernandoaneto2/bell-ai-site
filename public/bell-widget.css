@@ -143,29 +143,36 @@
 
 /* ── Footer / Input ── */
 .chat-layout,
-.chat-body {
-  background: #111111 !important;
+.chat-body,
+.chat-footer,
+.chat-inputs,
+.chat-inputs-controls,
+.chat-input-left-panel,
+.chat-powered-by {
+  background:    #111111 !important;
+  border-color:  transparent !important;
 }
 
+.chat-powered-by { display: none !important; }
+
 .chat-footer {
-  background: #111111 !important;
   border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
   padding:    12px 14px !important;
 }
 
 /* Wrapper do input — pill shape */
 .chat-inputs {
-  background:    #1e1e1e;
-  border:        1px solid rgba(201, 162, 76, 0.15);
-  border-radius: 999px;
-  display:       flex;
-  align-items:   center;
-  padding:       4px 4px 4px 16px;
-  gap:           8px;
+  background:    #1e1e1e !important;
+  border:        1px solid rgba(201, 162, 76, 0.15) !important;
+  border-radius: 999px !important;
+  display:       flex !important;
+  align-items:   center !important;
+  padding:       4px 4px 4px 16px !important;
+  gap:           8px !important;
 }
 
 .chat-inputs:focus-within {
-  border-color: rgba(201, 162, 76, 0.4);
+  border-color: rgba(201, 162, 76, 0.4) !important;
 }
 
 .chat-input {
@@ -189,22 +196,22 @@
 
 /* Botão enviar — círculo dourado */
 .chat-input-send-button {
-  background:    #c9a24c;
-  border:        none;
-  border-radius: 50%;
-  width:         36px;
-  height:        36px;
-  min-width:     36px;
-  display:       flex;
-  align-items:   center;
-  justify-content: center;
-  cursor:        pointer;
-  flex-shrink:   0;
-  transition:    background 0.2s ease, transform 0.15s ease;
+  background:    #c9a24c !important;
+  border:        none !important;
+  border-radius: 50% !important;
+  width:         36px !important;
+  height:        36px !important;
+  min-width:     36px !important;
+  display:       flex !important;
+  align-items:   center !important;
+  justify-content: center !important;
+  cursor:        pointer !important;
+  flex-shrink:   0 !important;
+  transition:    background 0.2s ease, transform 0.15s ease !important;
 }
 
 .chat-input-send-button:hover {
-  background: #b08a38;
+  background: #b08a38 !important;
   transform:  scale(1.05);
 }
 
