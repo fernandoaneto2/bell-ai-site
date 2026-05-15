@@ -181,7 +181,11 @@
   border-color: rgba(201, 162, 76, 0.4) !important;
 }
 
-.chat-input {
+.chat-input,
+.chat-window textarea,
+.chat-window input[type="text"],
+.chat-inputs textarea,
+.chat-inputs input {
   background:  transparent !important;
   color:       #ffffff !important;
   font-size:   14px !important;
@@ -194,9 +198,12 @@
   max-height:  120px !important;
   padding:     6px 0 !important;
   line-height: 1.4 !important;
+  caret-color: #c9a24c !important;
 }
 
-.chat-input::placeholder {
+.chat-input::placeholder,
+.chat-window textarea::placeholder,
+.chat-inputs textarea::placeholder {
   color: #666666 !important;
 }
 
