@@ -14,7 +14,7 @@ export default function ChatWidget() {
 
     const bellCSS = document.createElement("link");
     bellCSS.rel = "stylesheet";
-    bellCSS.href = "/bell-widget.css?v=21";
+    bellCSS.href = "/bell-widget.css?v=22";
     document.head.appendChild(bellCSS);
 
     const script = document.createElement("script");
