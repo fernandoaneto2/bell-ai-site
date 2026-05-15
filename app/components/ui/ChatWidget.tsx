@@ -14,7 +14,7 @@ export default function ChatWidget() {
 
     const bellCSS = document.createElement("link");
     bellCSS.rel = "stylesheet";
-    bellCSS.href = "/bell-widget.css?v=10";
+    bellCSS.href = "/bell-widget.css?v=11";
     document.head.appendChild(bellCSS);
 
     const script = document.createElement("script");
@@ -29,8 +29,7 @@ export default function ChatWidget() {
         loadPreviousSession: false,
         defaultLanguage: 'en',
         initialMessages: [
-          "Hi! I'm the Harbor Catch assistant 🦪",
-          "Ask me about hours, menu, location, or book a table."
+          "Hi! I'm the Harbor Catch assistant 🦪 Ask me about hours, menu, location, or book a table."
         ],
         i18n: {
           en: {
@@ -38,7 +37,7 @@ export default function ChatWidget() {
             subtitle: '',
             footer: '',
             getStarted: 'Start chatting',
-            inputPlaceholder: 'Type your question...',
+            inputPlaceholder: 'Type your question..',
             closeButtonTooltip: 'Close'
           }
         }
