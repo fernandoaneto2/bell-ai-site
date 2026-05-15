@@ -32,57 +32,12 @@
   --chat--input--border-color-active: #c9a24c;
   --chat--input--placeholder-color:   #5a5a5a;
 
-  /* Toggle size */
-  --chat--toggle--size:              72px;
-  --chat--toggle--background:        transparent;
-  --chat--toggle--hover--background: transparent;
-  --chat--toggle--active--background:transparent;
-  --chat--toggle--color:             transparent;
-}
-
-/* ────────────────────────────────────────
-   BELL TOGGLE — override n8n button visuals
-   The button stays fully functional (n8n
-   handles open/close). We just replace the
-   icon with our bell image + ring animation.
-   ──────────────────────────────────────── */
-
-@keyframes bellRing {
-  0%,  55%, 100% { transform: rotate(0deg);  }
-  60%            { transform: rotate(14deg);  }
-  65%            { transform: rotate(-12deg); }
-  70%            { transform: rotate(9deg);   }
-  75%            { transform: rotate(-7deg);  }
-  80%            { transform: rotate(5deg);   }
-  85%            { transform: rotate(-3deg);  }
-  90%            { transform: rotate(1deg);   }
-  95%            { transform: rotate(0deg);   }
-}
-
-.chat-toggle {
-  /* replace background with our bell image */
-  background-color:    transparent !important;
-  background-image:    url('/Emoji-bell-sem-fundo.png') !important;
-  background-size:     contain     !important;
-  background-repeat:   no-repeat   !important;
-  background-position: center      !important;
-
-  box-shadow:   none    !important;
-  border:       none    !important;
-  overflow:     visible !important;
-
-  filter:         drop-shadow(0 4px 20px rgba(201, 162, 76, 0.6)) !important;
-  transform-origin: 50% 10% !important;  /* swing from the handle */
-  animation:      bellRing 4s ease-in-out infinite !important;
-
-  cursor: pointer !important;
-}
-
-/* hide the default SVG icon inside the button */
-.chat-toggle svg,
-.chat-toggle img,
-.chat-toggle span {
-  display: none !important;
+  /* Toggle — gold on black, standard chat bubble style */
+  --chat--toggle--size:               60px;
+  --chat--toggle--background:         #c9a24c;
+  --chat--toggle--hover--background:  #b08a38;
+  --chat--toggle--active--background: #8b6f2e;
+  --chat--toggle--color:              #000000;
 }
 
 /* ── Chat window ── */
