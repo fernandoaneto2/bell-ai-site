@@ -1,6 +1,5 @@
 /* ── bell.ai Chat Widget — Brand Override ── */
 
-/* Core palette */
 :root {
   --chat--color--primary:           #c9a24c;
   --chat--color--primary-shade-50:  #b08a38;
@@ -12,16 +11,15 @@
   --chat--color--medium-gray:       #1a1a1a;
   --chat--color--dark-gray:         #8a8a8a;
 
-  --chat--font-family:     "Manrope", system-ui, sans-serif;
-  --chat--font-size:       14px;
-  --chat--line-height:     1.55;
+  --chat--font-family:    "Manrope", system-ui, sans-serif;
+  --chat--font-size:      14px;
+  --chat--line-height:    1.55;
+  --chat--border-radius:  16px;
+  --chat--window--width:  380px;
+  --chat--window--height: 560px;
 
-  --chat--border-radius:   16px;
-  --chat--window--width:   380px;
-  --chat--window--height:  560px;
-
-  --chat--header--background:   #0a0a0a;
-  --chat--header--color:        #ffffff;
+  --chat--header--background:  #0a0a0a;
+  --chat--header--color:       #ffffff;
 
   --chat--body--background:             #000000;
   --chat--message--bot--background:     #141414;
@@ -34,71 +32,52 @@
   --chat--input--border-color-active:  #c9a24c;
   --chat--input--placeholder-color:    #5a5a5a;
 
-  --chat--toggle--size: 76px;
-}
-
-/*
- * The n8n toggle is kept fully functional but rendered transparent,
- * positioned exactly over the bell image so clicks reach it naturally.
- */
-.chat-toggle {
-  position: fixed !important;
-  bottom: 24px !important;
-  right: 24px !important;
-  width: 76px !important;
-  height: 76px !important;
-  opacity: 0 !important;
-  z-index: 10000 !important;   /* one above the bell image */
-  cursor: pointer !important;
-  pointer-events: all !important;
-  border-radius: 50% !important;
-  background: transparent !important;
-  box-shadow: none !important;
+  /* Toggle size */
+  --chat--toggle--size: 72px;
 }
 
 /* ── Bell ring animation ── */
 @keyframes bellRing {
-  0%,  55%, 100% { transform: rotate(0deg);   }
-  60%            { transform: rotate(14deg);   }
-  65%            { transform: rotate(-12deg);  }
-  70%            { transform: rotate(9deg);    }
-  75%            { transform: rotate(-7deg);   }
-  80%            { transform: rotate(5deg);    }
-  85%            { transform: rotate(-3deg);   }
-  90%            { transform: rotate(1deg);    }
-  95%            { transform: rotate(0deg);    }
+  0%,  55%, 100% { transform: rotate(0deg);  }
+  60%            { transform: rotate(14deg);  }
+  65%            { transform: rotate(-12deg); }
+  70%            { transform: rotate(9deg);   }
+  75%            { transform: rotate(-7deg);  }
+  80%            { transform: rotate(5deg);   }
+  85%            { transform: rotate(-3deg);  }
+  90%            { transform: rotate(1deg);   }
+  95%            { transform: rotate(0deg);   }
 }
 
-/* ── Glow pulse ── */
-@keyframes bellGlowPulse {
-  0%, 100% { transform: scale(1);   opacity: 0.55; }
-  50%       { transform: scale(1.6); opacity: 0;    }
+/* ─────────────────────────────────────────────
+   Toggle button — replace n8n icon with bell image
+   ───────────────────────────────────────────── */
+.chat-toggle {
+  background:  transparent !important;
+  box-shadow:  none !important;
+  border:      none !important;
+  overflow:    visible !important;
+  position:    fixed !important;
 }
 
-/* ── Bell image wrapper — purely visual, sits below the transparent n8n toggle ── */
-.bell-toggle-btn {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 9999;
-  width: 76px;
-  height: 76px;
-  pointer-events: none;   /* clicks pass through to the n8n toggle above */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Hide every child element the n8n widget puts inside (svg, img, span…) */
+.chat-toggle > * {
+  display: none !important;
 }
 
-/* Bell image */
-.bell-toggle-img {
-  width: 72px !important;
-  height: 72px !important;
-  object-fit: contain;
+/* Render the bell image via ::before pseudo-element */
+.chat-toggle::before {
+  content: '';
+  display: block;
+  width:  72px;
+  height: 72px;
+  background-image:    url('/Emoji-bell-sem-fundo.png');
+  background-size:     contain;
+  background-repeat:   no-repeat;
+  background-position: center;
   filter: drop-shadow(0 4px 18px rgba(201, 162, 76, 0.55));
-  transform-origin: 50% 8%;     /* ring from the top (handle) */
+  transform-origin: 50% 12%;   /* swing from the handle at the top */
   animation: bellRing 4s ease-in-out infinite;
-  position: relative;
-  z-index: 1;
 }
 
 /* ── Window chrome ── */

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import Image from "next/image";
 
 const WEBHOOK_URL =
   "https://duamorim.app.n8n.cloud/webhook/0e8d08c6-63f4-4ed8-9181-bc3a262d20b4/chat";
@@ -53,18 +52,5 @@ export default function ChatWidget() {
     };
   }, []);
 
-  // The n8n toggle is made transparent via CSS and sits on top of this bell image.
-  // Clicks on the bell area hit the invisible n8n toggle underneath.
-  return (
-    <div className="bell-toggle-btn" aria-hidden="true">
-      <Image
-        src="/Emoji-bell-sem-fundo.png"
-        alt=""
-        width={72}
-        height={72}
-        className="bell-toggle-img"
-        priority
-      />
-    </div>
-  );
+  return null;
 }
