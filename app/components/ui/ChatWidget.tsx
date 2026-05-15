@@ -3,12 +3,6 @@
 import { useEffect } from "react";
 import Image from "next/image";
 
-declare global {
-  interface Window {
-    __bellChat?: { open: () => void; close: () => void; toggle: () => void };
-  }
-}
-
 const WEBHOOK_URL =
   "https://duamorim.app.n8n.cloud/webhook/0e8d08c6-63f4-4ed8-9181-bc3a262d20b4/chat";
 
@@ -29,7 +23,7 @@ export default function ChatWidget() {
     script.textContent = `
       import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
-      const chat = createChat({
+      createChat({
         webhookUrl: '${WEBHOOK_URL}',
         mode: 'window',
         showWelcomeScreen: false,
@@ -49,8 +43,6 @@ export default function ChatWidget() {
           },
         },
       });
-
-      if (chat) window.__bellChat = chat;
     `;
     document.head.appendChild(script);
 
@@ -61,33 +53,18 @@ export default function ChatWidget() {
     };
   }, []);
 
-  const handleToggle = () => {
-    // Use the n8n chat API if available; fallback to clicking the hidden toggle
-    if (window.__bellChat?.toggle) {
-      window.__bellChat.toggle();
-    } else {
-      document.querySelector<HTMLButtonElement>(".chat-toggle")?.click();
-    }
-  };
-
+  // The n8n toggle is made transparent via CSS and sits on top of this bell image.
+  // Clicks on the bell area hit the invisible n8n toggle underneath.
   return (
-    <button
-      type="button"
-      onClick={handleToggle}
-      className="bell-toggle-btn"
-      aria-label="Open bell.ai chat assistant"
-    >
-      {/* Glow ring */}
-      <span className="bell-glow-ring" aria-hidden="true" />
+    <div className="bell-toggle-btn" aria-hidden="true">
       <Image
         src="/Emoji-bell-sem-fundo.png"
         alt=""
         width={72}
         height={72}
         className="bell-toggle-img"
-        aria-hidden="true"
         priority
       />
-    </button>
+    </div>
   );
 }
