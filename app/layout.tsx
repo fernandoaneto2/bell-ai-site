@@ -3,7 +3,6 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import ChatWidget from "@/components/ui/ChatWidget";
-import BackgroundFX from "@/components/ui/BackgroundFX";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -71,8 +70,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${manrope.variable} font-sans antialiased bg-bg-primary text-white-pure`}>
-        <BackgroundFX />
-        <div style={{ position: "relative", zIndex: 1 }}>
+        <div>
           <LanguageProvider>
             {children}
             <ChatWidget />
