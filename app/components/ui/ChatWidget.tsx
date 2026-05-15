@@ -82,8 +82,8 @@ export default function ChatWidget() {
       <Image
         src="/Emoji-bell-sem-fundo.png"
         alt=""
-        width={60}
-        height={60}
+        width={72}
+        height={72}
         className="bell-toggle-img"
         aria-hidden="true"
         priority
