@@ -156,7 +156,7 @@
 [class*="message-bot"] {
   background: #1a1a1a !important;
   color: #ffffff !important;
-  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+  border: none !important;
 }
 
 [class*="from-user"],
@@ -176,7 +176,7 @@
 [class*="input-container"] {
   background: #1a1a1a !important;
   background-color: #1a1a1a !important;
-  border-top: 1px solid rgba(212, 175, 55, 0.15) !important;
+  border-top: none !important;
   padding: 1rem !important;
   width: 100% !important;
   max-width: 100% !important;
@@ -197,7 +197,7 @@
 [class*="textarea-wrapper"] {
   background: #1a1a1a !important;
   background-color: #1a1a1a !important;
-  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+  border: none !important;
   border-radius: 1.5rem !important;
   padding: 0.25rem 0.25rem 0.25rem 0.75rem !important;
   display: flex !important;
@@ -419,7 +419,7 @@
 [class*="footer"]:not([class*="message"]) {
   background: #1a1a1a !important;
   padding: 0.75rem !important;
-  border-top: 1px solid rgba(212, 175, 55, 0.15) !important;
+  border-top: none !important;
 }
 
 /* Wrapper que envolve textarea + botão */
@@ -428,7 +428,7 @@
 [class*="chat-inputs"],
 [class*="input-wrapper"] {
   background: #242424 !important;
-  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+  border: none !important;
   border-radius: 999px !important;
   padding: 0.25rem 0.25rem 0.25rem 1rem !important;
   display: flex !important;
@@ -521,7 +521,7 @@
 [class*="footer"]:not([class*="message"]) {
   background: #1a1a1a !important;
   padding: 0.75rem 1rem !important;
-  border-top: 1px solid rgba(212, 175, 55, 0.15) !important;
+  border-top: none !important;
 }
 
 /* Anula divs aninhadas dentro do footer (que criam o "dentro de dentro") */
