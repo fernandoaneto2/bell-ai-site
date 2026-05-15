@@ -56,7 +56,7 @@ export default function Navbar() {
                 alt="bell.ai"
                 width={96}
                 height={36}
-                className="h-12 w-auto object-contain"
+                className="h-16 w-auto object-contain"
                 priority
               />
             </a>
